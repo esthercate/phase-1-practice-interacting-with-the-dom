@@ -6,8 +6,7 @@ let heart = document.getElementById('heart')
 let pause = document.getElementById('pause')
 let submit = document.getElementById('submit')
 
-
-
+// Timer increment every second
 function count() {
   countId = setInterval(addmyNumber, 1000)
 }
@@ -17,14 +16,21 @@ function addmyNumber() {
   myNumber.textContent = parseInt(myNumber.textContent) + 1
 }
 
+
 function counterFeatures() {
+
+  // Increment when you click plus button
   add.addEventListener('click', () => {
     myNumber.textContent = parseInt(myNumber.textContent) + 1
   })
+
+  //Decrement when you click minus button
   minus.addEventListener('click', () => {
     if (myNumber.textContent != 0)
       myNumber.textContent = parseInt(myNumber.textContent) - 1
   })
+
+  //count of the number of 'likes' associated with that number displayed
   heart.addEventListener('click', () => {
     let ul = document.querySelector('.likes')
     let li = document.createElement('li')
@@ -34,6 +40,7 @@ function counterFeatures() {
 
 }
 counterFeatures()
+
 
 function pauseNResume() {
   if (pause.innerText === 'pause') {
@@ -54,6 +61,7 @@ function pauseNResume() {
 }
 pause.addEventListener('click', pauseNResume)
 
+//Submit form
 let form = document.querySelector('form')
 form.addEventListener('submit', (e) => {
   e.preventDefault()
